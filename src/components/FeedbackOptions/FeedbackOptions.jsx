@@ -1,18 +1,19 @@
 import React from "react";
+import {OpinionWrapper, OpinionBtn} from '../FeedbackOptions/FeedbackOptions.styled'
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
      <>
-        <div>
+        <OpinionWrapper>
         {options.map(item => (
-            <button
+            <OpinionBtn
                 key={item.name}
                 name={item.name}
                 type="button"
                 onClick={onLeaveFeedback}>
                 {item.title}
-            </button>
+            </OpinionBtn>
         ))}
-        </div>
+        </OpinionWrapper>
     </>
 );
 

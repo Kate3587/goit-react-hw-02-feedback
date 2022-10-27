@@ -1,8 +1,9 @@
 import React from "react";
+import {NonMessage} from '../Notification/Notification.styled'
 
 const Notification = ({ message, children }) => (
     <>
-        <p>{message}</p>
+        <NonMessage>{message}</NonMessage>
         {children}
     </>
 );

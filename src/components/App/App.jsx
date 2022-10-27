@@ -5,6 +5,7 @@ import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
 import Notification from '../Notification/Notification'
 import Statistics from '../Statistics/Statistics';
 import options from '../../data/Options';
+import {Container} from '../App/App.styled'
 
 
 class App extends Component{
@@ -42,7 +43,7 @@ class App extends Component{
         const positivePercentage = (good &&  (good * 100 / total).toFixed(1));
 
         return (
-            <div>
+            <Container>
             <Section title={"Please leave feedback"}>
                     <FeedbackOptions
                     options={options}
@@ -61,7 +62,7 @@ class App extends Component{
                     />
                   
                 </Section>
-            </div>
+            </Container>
         )
     };
 };
