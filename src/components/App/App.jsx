@@ -5,7 +5,7 @@ import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
 import Notification from '../Notification/Notification'
 import Statistics from '../Statistics/Statistics';
 import options from '../../data/Options';
-import {Container} from '../App/App.styled'
+import { Container } from '../App/App.styled';
 
 
 class App extends Component{
@@ -17,51 +17,46 @@ class App extends Component{
      };
 
     handleChange = (event) => {
-        const { name } = event.target;
-        console.log (event.target)
+      const { name } = event.target;
+      
         this.setState(prevState => {
             return {
-            [name]: prevState[name] + 1
+              [name]: prevState[name] + 1,
+              visible: true,
             }})
-    };
-  
-  show = () => {
-    this.setState({
-      visible: true
-    });
-  };
-  
-    hide = () => {
-    this.setState({
-      visible: false
-    });
     };
         
     render() {
-        const { good, neutral, bad } = this.state;
+        const { good, neutral, bad} = this.state;
         const total = good + neutral + bad;
         const positivePercentage = (good &&  (good * 100 / total).toFixed(1));
 
         return (
             <Container>
-            <Section title={"Please leave feedback"}>
+              <Section title={"Please leave feedback"}>
                     <FeedbackOptions
                     options={options}
                     onLeaveFeedback={this.handleChange}
                     />
-                </Section>
+              </Section>
 
             <Section title={"Statistics"}>
-               <Notification message="There is no feedback"></Notification>
-                    <Statistics
-                    good={good}
-                    neutral={neutral}
-                    bad={bad}
-                    total={total}
-                    positivePercentage={positivePercentage}
-                    />
-                  
-                </Section>
+              {!this.state.visible && (
+                <Notification
+                message={"There is no feedback"}
+              />)}
+              
+              {this.state.visible && (
+                <Statistics
+                  good={good}
+                  neutral={neutral}
+                  bad={bad}
+                  total={total}
+                  positivePercentage={positivePercentage}
+                  />
+              )}
+                 
+            </Section>
             </Container>
         )
     };

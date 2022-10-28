@@ -1,10 +1,9 @@
 import React from "react";
 import {NonMessage} from '../Notification/Notification.styled'
 
-const Notification = ({ message, children }) => (
+const Notification = ({ message, onHide}) => (
     <>
-        <NonMessage>{message}</NonMessage>
-        {children}
+        <NonMessage onClick={onHide}>{message}</NonMessage>
     </>
 );
 
