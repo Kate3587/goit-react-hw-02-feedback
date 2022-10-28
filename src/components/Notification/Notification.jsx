@@ -1,5 +1,6 @@
 import React from "react";
-import {NonMessage} from '../Notification/Notification.styled'
+import PropTypes from 'prop-types';
+import { NonMessage } from '../Notification/Notification.styled';
 
 const Notification = ({ message, onHide}) => (
     <>
@@ -8,3 +9,8 @@ const Notification = ({ message, onHide}) => (
 );
 
 export default Notification;
+
+Notification.propTypes = {
+    message: PropTypes.string.isRequired,
+    onHide: PropTypes.func,
+}

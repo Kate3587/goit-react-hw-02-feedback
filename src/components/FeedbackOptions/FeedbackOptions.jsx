@@ -1,5 +1,6 @@
 import React from "react";
-import {OpinionWrapper, OpinionBtn} from '../FeedbackOptions/FeedbackOptions.styled'
+import PropTypes from 'prop-types';
+import { OpinionWrapper, OpinionBtn } from '../FeedbackOptions/FeedbackOptions.styled';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => (
      <>
@@ -18,3 +19,11 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => (
 );
 
 export default FeedbackOptions;
+
+FeedbackOptions.propTypes = {
+    options: PropTypes.arrayOf(PropTypes.exact({
+        name: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+    })),
+    onLeaveFeedback: PropTypes.func.isRequired,
+};
