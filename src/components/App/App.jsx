@@ -1,9 +1,9 @@
 import React from "react";
 import { Component } from 'react';
-import Section from '../Section/Section'
-import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
-import Notification from '../Notification/Notification'
-import Statistics from '../Statistics/Statistics';
+import Section from '../Section'
+import FeedbackOptions from '../FeedbackOptions';
+import Notification from '../Notification'
+import Statistics from '../Statistics';
 import options from '../../data/Options';
 import { Container } from '../App/App.styled';
 
